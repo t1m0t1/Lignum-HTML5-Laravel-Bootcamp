@@ -1,7 +1,10 @@
-*{
+/* global */
+ * {
+    font-weight: 900;
     font-family: 'Courier New', Courier, monospace;
 }
 
+/* tags */
 header {
     text-align: center;
     background-color: aqua;
@@ -18,4 +21,41 @@ aside{
 
 nav{
     background-color: rgb(225, 255, 0);
+}
+
+
+/* class */
+.header{
+    background-color: #FF00FF;
+    font-size: 46px;
+}
+
+.footer{
+    background-color: #FF00FF;
+    font-size: 10px;
+}
+
+.content{
+    font-size: 14px;
+}
+
+.navegation{
+    background-color: blue;
+    font-size: 12px;
+}
+
+.sidebar{
+    font-size: 10px;
+}
+
+/* ¿Cómo podría agregar peso a la definición de fuente global(global font definition)
+ para ganarse las clases agregadas por el punto 3? */
+
+
+ 
+/* Imagine que hay una declaración como class=”no-puedo-usar-inline-styles” style=”background:red” 
+y necesita cambiar el fondo a verde sin cambiar el estilo en línea. ¿Cómo podrías lograr esto? */
+.no-puedo-usar-inline-styles{
+    display: inline;
+    background-color: green !important;
 }
