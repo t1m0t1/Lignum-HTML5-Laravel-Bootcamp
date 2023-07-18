@@ -1,3 +1,21 @@
 *{
-    font
+    font-family: 'Courier New', Courier, monospace;
+}
+
+header {
+    text-align: center;
+    background-color: aqua;
+}
+
+footer {
+    text-align: center;
+    background-color: beige;
+}
+
+aside{
+    background-color: rgb(0, 255, 81);
+}
+
+nav{
+    background-color: rgb(225, 255, 0);
 }
