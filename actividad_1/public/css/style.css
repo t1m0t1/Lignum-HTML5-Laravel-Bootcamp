@@ -1,18 +1,14 @@
 /* global */
  * {
-    font-weight: 900;
+    margin: 0;
     font-family: 'Courier New', Courier, monospace;
 }
 
 /* tags */
 header {
+
     text-align: center;
     background-color: aqua;
-}
-
-footer {
-    text-align: center;
-    background-color: beige;
 }
 
 aside{
@@ -23,30 +19,66 @@ nav{
     background-color: rgb(225, 255, 0);
 }
 
+article{
+    margin: 5px;
+    background-color: aliceblue;
+    height: 65vh;
+}
+
+footer {
+
+    text-align: center;
+    background-color: beige;
+}
+
 
 /* class */
 .header{
+    margin-bottom: 5px;
+    height: 10%;
+    width: 100%;
     background-color: #FF00FF;
     font-size: 46px;
 }
 
-.footer{
-    background-color: #FF00FF;
-    font-size: 10px;
-}
-
 .content{
+    background-color: blueviolet;
+    height: 80vh;
+    margin-left: 16%;
+    width: 68%;
     font-size: 14px;
 }
 
-.navegation{
+.navigation{
+    position: fixed;
+    left: 0;
+    height: 80vh;
+    width: 15%;
+    margin-left: 5px;
     background-color: blue;
     font-size: 12px;
 }
 
 .sidebar{
+    position: fixed;
+    right: 0;
+    height: 80vh;
+    width: 15%;
+    margin-right: 5px;
     font-size: 10px;
 }
+
+.footer{
+    margin-top: 5px;
+    left: 0;
+    height: 10%;
+    width: 100%;
+    background-color: #FF00FF;
+    font-size: 10px;
+}
+
+
+
 
 /* ¿Cómo podría agregar peso a la definición de fuente global(global font definition)
  para ganarse las clases agregadas por el punto 3? */
