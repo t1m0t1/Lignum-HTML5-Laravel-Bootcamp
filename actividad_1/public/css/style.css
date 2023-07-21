@@ -34,23 +34,24 @@ footer {
 
 /* class */
 .header{
-    margin-bottom: 5px;
-    height: 10%;
-    width: 100%;
     background-color: #FF00FF;
+    /*     height: 10%;
+    width: 100%; */
+    margin-bottom: 5px;
     font-size: 46px;
 }
 
 .content{
+    display: grid;
     background-color: blueviolet;
     height: 80vh;
-    margin-left: 16%;
     width: 68%;
+    margin-left: 16%;
     font-size: 14px;
 }
 
 .navigation{
-    position: fixed;
+    position: absolute;
     left: 0;
     height: 80vh;
     width: 15%;
@@ -60,7 +61,7 @@ footer {
 }
 
 .sidebar{
-    position: fixed;
+    position: absolute;
     right: 0;
     height: 80vh;
     width: 15%;
@@ -70,8 +71,6 @@ footer {
 
 .footer{
     margin-top: 5px;
-    left: 0;
-    height: 10%;
     width: 100%;
     background-color: #FF00FF;
     font-size: 10px;
