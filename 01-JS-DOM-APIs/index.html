@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/Lignum-HTML5-Laravel-Bootcamp/01-JS-DOM-APIs/public/css/style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <header></header>
+    <section id="hello" class="op0">
+      <h1>Hello World</h1>
+    </section>
+
+    <section>
+      <article>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis sunt
+        ab veritatis molestias fuga, placeat atque necessitatibus eum vel
+        laborum quod, blanditiis delectus expedita perspiciatis ipsa aliquid
+        magni itaque saepe.
+      </article>
+    </section>
+
+    <footer></footer>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      window.setTimeout(function() {
+        document.getElementById('hello').classList.add('fade')
+}, 230);
+    })
+  </script>
+</html>
