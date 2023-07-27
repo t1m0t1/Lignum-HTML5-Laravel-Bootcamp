@@ -12,24 +12,25 @@
     <header></header>
     <section id="hello" class="op0">
       <h1>Hello World</h1>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis sunt
-      ab veritatis molestias fuga, placeat atque necessitatibus eum vel
-      laborum quod, blanditiis delectus expedita perspiciatis ipsa aliquid
-      magni itaque saepe.
+      <p id="broma"></p>
     </section>
     <button onclick=mensaje() >Hello</button>
+    <button id="broma-btn"  >Una buena broma del tio Chuck</button>
 
     <footer></footer>
   </body>
   <script>
+    //se agrega un evento de "escucha" a la espera de un DOMContentLoaded.
+    //el cual nos informa cuando el contenido del DOM(Document Object Model) este cargado completamente.
+    //este asegura que la funcion se ejecute despues de que todos los elementos html y css se hayan cargado.
     document.addEventListener("DOMContentLoaded", () => {
+      //https://www.w3schools.com/jsref/met_win_settimeout.asp
+      //la funcion setTimeout sirve para programar una accion luego de un tiempo determinado en ms
       window.setTimeout(function() {
+        //tomamos el elemtno con el id "hello" y le agregamos la clase "fade"
         document.getElementById('hello').classList.add('fade')
 }, 230);
     })
-
-    function mensaje (){
-      alert("osea hello!!")
-    }
   </script>
+  <script src="./public/js/index.js"></script>
 </html>

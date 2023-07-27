@@ -9,6 +9,6 @@ opacity: 0;
 
 .fade{
     opacity: 1;
-    transition-duration: 2s;
+    transition-duration: 5s;
     transition-property: opacity;
 }
