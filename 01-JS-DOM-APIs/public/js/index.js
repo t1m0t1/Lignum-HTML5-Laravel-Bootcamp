@@ -2,6 +2,19 @@
 function mensaje() {
   alert("osea hello!!");
 }
+
+    //se agrega un evento de "escucha" a la espera de un DOMContentLoaded.
+    //el cual nos informa cuando el contenido del DOM(Document Object Model) este cargado completamente.
+    //este asegura que la funcion se ejecute despues de que todos los elementos html y css se hayan cargado.
+    document.addEventListener("DOMContentLoaded", () => {
+      //https://www.w3schools.com/jsref/met_win_settimeout.asp
+      //la funcion setTimeout sirve para programar una accion luego de un tiempo determinado en ms
+      window.setTimeout(function() {
+        //tomamos el elemtno con el id "hello" y le agregamos la clase "fade"
+        document.getElementById('hello').classList.add('fade')
+}, 230);
+    })
+
 //fuentes
 //https://www.freecodecamp.org/espanol/news/javascript-dom-events-onclick-and-onload/
 //https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
@@ -53,3 +66,45 @@ function mensaje() {
         document.getElementById('broma').style.color = 'red';
       });
   });
+/* let query= "JavaScript"; */
+function search (query){
+  return new Promise((res,err)=>{
+  const request= new XMLHttpRequest();
+    request.open("GET",`https://api.github.com/search/repositories?q=${query}`);
+  
+    request.onload=()=>{
+      if (request.status === 200){
+        const data = JSON.parse(request.responseText);
+      
+        res(data.items);
+       
+      }else{
+        err(new Error ("error"))
+      }
+    }
+    request.onerror = function () {
+      err(new Error('Error de red'));
+    };
+    request.send();
+  })
+
+}
+
+function listarRepos(){
+  const query = document.getElementById("search").value;
+  const lista = document.getElementById("lista-repos");
+  lista.innerHTML='';
+
+  search(query)
+  .then((repositorios) => {
+    repositorios.forEach(repo => {
+      console.log(repo.name)
+      const li = document.createElement('li');
+      li.textContent = repo.name;
+      lista.appendChild(li);
+    });
+  })
+
+
+
+}

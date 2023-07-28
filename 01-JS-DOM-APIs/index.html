@@ -5,32 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/Lignum-HTML5-Laravel-Bootcamp/01-JS-DOM-APIs/public/css/style.css">
+    <link
+      rel="stylesheet"
+      href="/Lignum-HTML5-Laravel-Bootcamp/01-JS-DOM-APIs/public/css/style.css"
+    />
     <title>Document</title>
   </head>
   <body>
     <header></header>
+    <aside>
+      <label for="search"
+        >Buscar repositorios</label
+      >
+      <input type="text" name="search" id="search"/>
+      <button onclick="listarRepos()">Buscar</button>
+      <ol id="lista-repos"></ol>
+    </aside>
+
     <section id="hello" class="op0">
       <h1>Hello World</h1>
       <p id="broma"></p>
     </section>
-    <button onclick=mensaje() >Hello</button>
-    <button id="broma-btn"  >Una buena broma del tio Chuck</button>
+
+    <button onclick="mensaje()">Hello</button>
+    <button id="broma-btn">Una buena broma del tio Chuck</button>
 
     <footer></footer>
   </body>
-  <script>
-    //se agrega un evento de "escucha" a la espera de un DOMContentLoaded.
-    //el cual nos informa cuando el contenido del DOM(Document Object Model) este cargado completamente.
-    //este asegura que la funcion se ejecute despues de que todos los elementos html y css se hayan cargado.
-    document.addEventListener("DOMContentLoaded", () => {
-      //https://www.w3schools.com/jsref/met_win_settimeout.asp
-      //la funcion setTimeout sirve para programar una accion luego de un tiempo determinado en ms
-      window.setTimeout(function() {
-        //tomamos el elemtno con el id "hello" y le agregamos la clase "fade"
-        document.getElementById('hello').classList.add('fade')
-}, 230);
-    })
-  </script>
   <script src="./public/js/index.js"></script>
 </html>

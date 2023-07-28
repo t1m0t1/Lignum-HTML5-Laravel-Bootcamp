@@ -1,5 +1,20 @@
 section {
+    position: relative;
+    width: 75%;
     text-align: center;
+}
+
+label{
+    display: block;
+    text-align: center;
+}
+
+aside{
+    margin-right: 1rem;
+    display: flexbox;
+    position: absolute;
+    right: 0;
+    height: auto;
 }
 
 .op0{
