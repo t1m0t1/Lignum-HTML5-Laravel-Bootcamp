@@ -33,6 +33,8 @@ function pintarTabla(matriz){
     return tabla;
 
 };
+
+
 var matriz = [
     { nombre: 'Juan', edad: 30, ciudad: 'Madrid' },
     { nombre: 'María', edad: 25, ciudad: 'Barcelona' },

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./class/pelicula.js"></script>
+    <script src="./class/actor.js"></script>
+    <script src="./class/eventEmitter.js"></script>
+    <script src="./class/logger.js"></script>
+    <script src="./class/movie.js"></script>
+    <script>
+      const pelicula = new Pelicula("Punisher", 2012, 120);
+      const pelicula2 = new Pelicula("Padrino", 1978, 120);
+      const rapidosYfuriosos = new Movie("Rapido y furiosos III", 2009, 100);
+
+      const sung = new Actor("Sung Kang", 51);
+
+      const elenco = [
+        new Actor("Vin Diesel", 56),
+        new Actor("Paul Walker", 53),
+        new Actor("Don Omar", 45),
+      ];
+
+      const actor1 = new Actor("Jason Statham", 56);
+      const actor2 = new Actor("Emilia Clarke", 36);
+
+      const emitter = new EventEmitter();
+
+      function activarEvento() {
+        console.log("Evento activado");
+      }
+
+      rapidosYfuriosos.on("play", () => {
+        const logger = new Logger();
+        logger.log("El evento 'Play' se esta emitiendo");
+      });
+
+      /*       console.log(pelicula);
+      console.log(pelicula2);
+      pelicula.play();
+      pelicula.pause();
+      pelicula.resume(); */
+
+      emitter.on("miEvento", activarEvento);
+      emitter.on("evento1", activarEvento);
+      emitter.on("evento2", activarEvento);
+      emitter.emit("miEvento");
+      emitter.off("miEvento", activarEvento);
+      emitter.emit("miEvento");
+      emitter.emit("evento1");
+      emitter.emit("evento2");
+      /* emitter.emit("miEvento"); */
+
+      rapidosYfuriosos.addCast(elenco);
+      rapidosYfuriosos.addCast(sung);
+    </script>
+  </body>
+</html>
