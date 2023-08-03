@@ -33,6 +33,9 @@
       function activarEvento() {
         console.log("Evento activado");
       }
+      function activarEvento2() {
+        console.log("Evento2 activado");
+      }
 
       rapidosYfuriosos.on("play", () => {
         const logger = new Logger();
@@ -46,14 +49,13 @@
       pelicula.resume(); */
 
       emitter.on("miEvento", activarEvento);
-      emitter.on("evento1", activarEvento);
-      emitter.on("evento2", activarEvento);
+      emitter.on("miEvento", activarEvento2);
+
       emitter.emit("miEvento");
+
       emitter.off("miEvento", activarEvento);
+
       emitter.emit("miEvento");
-      emitter.emit("evento1");
-      emitter.emit("evento2");
-      /* emitter.emit("miEvento"); */
 
       rapidosYfuriosos.addCast(elenco);
       rapidosYfuriosos.addCast(sung);
