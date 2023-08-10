@@ -12,6 +12,6 @@ class Movie extends Model
 
     public function mainActor()
     {
-        return $this->belongsTo(Actor::class);
+        return $this->belongsTo(Actor::class,'mainActorId');
     }
 }
