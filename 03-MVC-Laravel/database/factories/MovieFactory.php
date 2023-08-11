@@ -22,6 +22,7 @@ class MovieFactory extends Factory
             'year'=> fake() -> dateTime(),
             'duration'=> fake()-> randomFloat(2,60,120),
             'synopsis'=> fake()-> paragraph(),
+            'imageMovie'=> fake()-> url(),
         ];
     }
 }

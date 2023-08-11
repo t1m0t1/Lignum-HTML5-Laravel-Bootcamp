@@ -18,7 +18,8 @@ class ActorFactory extends Factory
     {
         return [
             'name' => fake() -> name(),
-            'date_of_birth' => now()
+            'date_of_birth' => now(),
+            'imageActor'=> fake()-> url(),
         ];
     }
 }
