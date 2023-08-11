@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Actor;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ActorController extends Controller
 {
@@ -13,7 +14,7 @@ class ActorController extends Controller
      */
     public function index()
     {   
-        return view('actor.index', ['actors' => Actor::all()]);
+        return view('actor.indexActor', ['actors' => Actor::all()]);
     }
 
     /**
@@ -31,12 +32,17 @@ class ActorController extends Controller
     {
         $request -> validate([
             'name'=> 'required|unique:actors',
-            'dateActor'=> 'required|date'
+            'dateActor'=> 'required|date',
+            'imageActor'=> 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2028'
         ]);
+
+        $fileName =time().'.'.request()->imageActor->getClientOriginalExtension();
+        request()->imageActor->move(public_path('images'), $fileName);
 
         $actor = new Actor();
         $actor->name = $request->input('name');
         $actor->date_of_birth = $request->input('dateActor');
+        $actor->imageActor = $fileName;
         $actor->save();
         return redirect('actor');
     }
@@ -52,9 +58,10 @@ class ActorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Actor $actor)
+    public function edit($id)
     {
-        //
+        return view('actor.editActor', ['actor' => Actor::find($id)]);
+
     }
 
     /**
@@ -62,14 +69,40 @@ class ActorController extends Controller
      */
     public function update(Request $request, Actor $actor)
     {
-        //
+        $request->validate([
+            'name'=> 'required',
+            'dateActor'=> 'required|date'
+        ]);
+
+        $fileName = $request->hiddenImageActor;
+
+        if ($request->imageActor != '') {
+        $fileName =time().'.'.request()->imageActor->getClientOriginalExtension();
+        request()->imageActor->move(public_path('images'), $fileName);
+        }
+
+        $actor = Actor::find($request->hiddenId);
+        $actor->name = $request->input('name');
+        $actor->date_of_birth = $request->input('dateActor');
+        $actor->imageActor = $fileName;
+        $actor->save();
+
+        return redirect('actor');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Actor $actor)
-    {
-        //
+    public function destroy($id)
+    { /* dd($id); */
+        $actor = Actor::find($id);
+        $imagePath = public_path()."/images/";
+        $image = $imagePath. $actor->imageActor;
+
+        if(file_exists($image)){
+            @unlink($image);
+        }
+        $actor->delete();
+        return redirect('actor');
     }
 }
