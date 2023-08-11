@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->string("name");
             $table->date("date_of_birth");
+            $table->string('imageActor');
             $table->timestamps();
         });
     }

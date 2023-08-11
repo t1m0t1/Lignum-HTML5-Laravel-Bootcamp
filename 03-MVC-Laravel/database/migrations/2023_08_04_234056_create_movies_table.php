@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('year');
             $table->float('duration');
             $table->text('synopsis');
+            $table->string('imageMovie');
             $table->foreignId('mainActorId');
             $table->timestamps();
 
