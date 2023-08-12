@@ -96,7 +96,7 @@ class ActorController extends Controller
     public function destroy($id)
     { /* dd($id); */
         $actor = Actor::find($id);
-        $imagePath = public_path()."/images/";
+        $imagePath = public_path()."/images/actors";
         $image = $imagePath. $actor->imageActor;
 
         if(file_exists($image)){

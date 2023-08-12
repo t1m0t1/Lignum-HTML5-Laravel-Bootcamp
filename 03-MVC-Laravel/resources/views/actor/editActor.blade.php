@@ -5,7 +5,7 @@
 @section('content')
     <main>
 
-        <h1 class="text-light text-center">Edit Actor</h1>
+        <h1 class="text-light text-center mt-5">Edit Actor</h1>
         @if ($errors->any())
             <ul>
                 @foreach ($errors as $error)
@@ -13,7 +13,7 @@
                 @endforeach
             </ul>
         @endif
-        <section class="container bg-dark bg-gradient pb-5">
+        <section class="container pb-5">
             <form action="{{ url('actor/'.$actor->id) }}" method="post" enctype="multipart/form-data">
                 @method('put')
                
