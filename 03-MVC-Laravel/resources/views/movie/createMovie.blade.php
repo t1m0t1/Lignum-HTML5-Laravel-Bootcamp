@@ -1,6 +1,6 @@
 @extends('layout/template')
 
-@section('title', 'Create new Actor')
+@section('title', 'Create new Movie')
 
 @section('content')
     <main>

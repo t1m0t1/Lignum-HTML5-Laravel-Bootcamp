@@ -28,7 +28,7 @@
                 <label class="text-light" for="dateActor">Date of birth</label>
                 <input class="form-control" type="date" name="dateActor" id="dateActor" value="{{ old('dateActor') }}">
                 <div class="d-grid gap-2">
-                    <button class="btn btn-primary mt-5" type="submit">Edit</button>
+                    <button class="btn btn-primary mt-5" type="submit">Create</button>
                 </div>
             </form>
         </section>
