@@ -16,31 +16,4 @@
             @endforeach
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $('.add-to-favorites').click(function() {
-                var movieId = $(this).data('movie-id');
-
-                $.ajax({
-                    url: '/addToFavorites',
-                    data: {
-                        "_token": $('meta[name="csrf-token"]').attr('content'),
-                        'id':movieId,
-                    },
-                    dataType: "json",
-                    method: "POST",
-                    success: (response) => {
-                        alert('Form submitted successfully');
-                        location.reload();
-                    }
-
-
-                });
-
-            });
-        });
-    </script>
 @endsection

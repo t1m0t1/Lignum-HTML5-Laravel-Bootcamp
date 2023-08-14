@@ -35,7 +35,7 @@
                     dataType: "json",
                     method: "POST",
                     success: (response) => {
-                        alert('Form submitted successfully');
+                        alert('Movie was successfully added to favorites');
                         location.reload();
                     }
 
