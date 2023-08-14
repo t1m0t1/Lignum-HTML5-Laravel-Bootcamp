@@ -1,6 +1,4 @@
-@extends('layout/template')
-
-@section('title', 'Create new Actor')
+@extends('layouts/app')
 
 @section('content')
     <main>
@@ -46,3 +44,4 @@
             reader.readAsDataURL(input.files[0]);
         }
     </script>
+@endsection

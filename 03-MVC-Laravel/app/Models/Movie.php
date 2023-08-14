@@ -14,4 +14,8 @@ class Movie extends Model
     {
         return $this->belongsTo(Actor::class,'mainActorId');
     }
+    public function favorite()
+    {
+        return $this->hasMany(Favorites::class);
+    }
 }

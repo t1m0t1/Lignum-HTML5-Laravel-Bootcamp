@@ -1,6 +1,4 @@
-@extends('layout/template')
-
-@section('title', 'Actors')
+@extends('layouts/app')
 
 @section('content')
 
@@ -44,3 +42,4 @@
             </table>
         </section>
     </main>
+@endsection

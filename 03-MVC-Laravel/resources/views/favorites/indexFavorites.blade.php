@@ -3,14 +3,12 @@
 @section('content')
     <div class="container">
         <div class="row">
-            @foreach ($movies as $movie)
+            @foreach ($favorites as $favorite)
                 <div class="card m-3" style="width: 18rem; opacity: 80%">
-                    <button class="btn btn-primary add-to-favorites" data-movie-id="{{ $movie->id }}">Add to
-                        Favorites</button>
-                    <img src={{ asset('images/movies/' . $movie->imageMovie) }} class="card-img-top mt-1"
-                        alt="image movie {{ $movie->title }}">
+                    <img src={{ asset('images/movies/' . $favorite->movie->imageMovie) }} class="card-img-top mt-1"
+                        alt="image movie {{ $favorite->movie->imageMovie}}">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $movie->title }}</h5>
+                        <h5 class="card-title">{{ $favorite->movie->title }}</h5>
 
                         <a href="#" class="btn btn-primary">More</a>
                     </div>

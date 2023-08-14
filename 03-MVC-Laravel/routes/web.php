@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ActorController;
+use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\MovieController;
 use App\Models\Movie;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +19,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home', ['movies'=> Movie::all()]);
+    return redirect('home');
 });
+/* Route::get('/', function () {
+    return view('home', ['movies'=> Movie::all()]);
+}); */
 
 Route::resource('movie', MovieController::class);
 Route::resource('actor', ActorController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/addToFavorites', [FavoritesController::class, 'addToFavorites']);
+Route::get('/favorites', [FavoritesController::class, 'index']);

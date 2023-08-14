@@ -1,6 +1,4 @@
-@extends('layout/template')
-
-@section('title', 'Edit Actor')
+@extends('layouts/app')
 
 @section('content')
     <main>
@@ -53,3 +51,4 @@
             reader.readAsDataURL(input.files[0]);
         }
     </script>
+@endsection

@@ -1,6 +1,4 @@
-@extends('layout/template')
-
-@section('title','Movies')
+@extends('layouts/app')
     
 @section('content')
 
@@ -33,7 +31,7 @@
                 <td> {{$movie->synopsis}} </td>
                 <td> {{$movie->mainActor->name}} </td>
                 <td>
-                    <a href={{url('movie/'.$movie->id.'/edit')}} class="btn btn-success mb-3">Edit</a>
+                    <a href={{url('movie/'.$movie->id.'/edit')}} class="btn btn-success">Edit</a>
                 </td>
                 <td>
                     <form action="{{url('movie/'.$movie->id)}}" method="post">
@@ -48,3 +46,4 @@
     </table>
 </section>
 </main>
+@endsection

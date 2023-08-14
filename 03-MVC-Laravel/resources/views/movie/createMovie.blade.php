@@ -1,6 +1,4 @@
-@extends('layout/template')
-
-@section('title', 'Create new Movie')
+@extends('layouts/app')
 
 @section('content')
     <main>
@@ -60,3 +58,4 @@
             reader.readAsDataURL(input.files[0]);
         }
     </script>
+@endsection
