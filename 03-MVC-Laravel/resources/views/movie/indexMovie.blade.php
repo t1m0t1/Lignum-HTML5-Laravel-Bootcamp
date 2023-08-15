@@ -26,7 +26,7 @@
             <tr class="align-middle">
                 <td><img class="img-responsive" src='{{ asset ('images/movies/'.$movie->imageMovie)}} 'alt="" style='height: 10vh'></td>
                 <td> {{$movie->title}} </td>
-                <td> {{$movie->year}} </td>
+                <td> {{$movie->year->format('d/m/Y')}} </td>
                 <td> {{$movie->duration}} </td>
                 <td> {{$movie->synopsis}} </td>
                 <td> {{$movie->mainActor->name}} </td>

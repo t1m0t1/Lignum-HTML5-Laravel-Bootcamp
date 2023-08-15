@@ -10,6 +10,10 @@ class Movie extends Model
 
     use HasFactory;
 
+    protected $casts = [
+        'year' => 'datetime'
+    ];
+
     public function mainActor()
     {
         return $this->belongsTo(Actor::class,'mainActorId');

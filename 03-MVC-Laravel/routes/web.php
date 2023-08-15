@@ -30,6 +30,6 @@ Route::resource('actor', ActorController::class);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::post('/addToFavorites', [FavoritesController::class, 'addToFavorites']);
 Route::get('/favorites', [FavoritesController::class, 'index']);

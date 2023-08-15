@@ -12,7 +12,7 @@ class FavoritesController extends Controller
 
 
     public function index(){
-        return view('favorites.indexFavorites',['favorites'=> Favorites::all()]);
+        return view('favorites.indexFavorites',['favorites'=> Favorites::all()]); // pasar id de usuario
     }
 
     public function addToFavorites(Request $request)
