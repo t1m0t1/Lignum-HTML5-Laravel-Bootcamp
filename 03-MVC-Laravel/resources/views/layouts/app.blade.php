@@ -14,10 +14,10 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-
+    @livewireStyles
 </head>
 <body style="background-image: url('/images/low-poly-grid-haikei.svg');
-background-size: cover ">
+background-size: cover;">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -99,6 +99,19 @@ background-size: cover ">
             @yield('content')
         </main>
     </div>
+    @livewireScripts
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script>
+        function showFile(event) {
+            var input = event.target;
+            var reader = new FileReader();
+            reader.onload = function() {
+                var dataURL = reader.result;
+                var output = document.getElementById('imagePreview');
+                output.src = dataURL;
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    </script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </html>
