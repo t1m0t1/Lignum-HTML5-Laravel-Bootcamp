@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ActorController;
 use App\Http\Controllers\FavoritesController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MovieController;
+use App\Http\Livewire\Movie\ListMovies;
 use App\Models\Movie;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,11 +23,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('home');
 });
+
 /* Route::get('/', function () {
     return view('home', ['movies'=> Movie::all()]);
 }); */
 
-Route::resource('movie', MovieController::class);
+Route::get('/movie', ListMovies::class);
 Route::resource('actor', ActorController::class);
 
 Auth::routes();

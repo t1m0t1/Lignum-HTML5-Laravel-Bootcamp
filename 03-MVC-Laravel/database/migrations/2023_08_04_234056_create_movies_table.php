@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('year');
-            $table->float('duration');
-            $table->text('synopsis');
-            $table->string('imageMovie');
-            $table->foreignId('mainActorId');
+            $table->string('year')->nullable();
+            $table->float('duration')->nullable();
+            $table->text('synopsis')->nullable();
+            $table->string('imageMovie')->nullable();
+            $table->foreignId('mainActorId')->nullable();
             $table->timestamps();
 
             $table->foreign('mainActorId')->references('id')->on('actors');

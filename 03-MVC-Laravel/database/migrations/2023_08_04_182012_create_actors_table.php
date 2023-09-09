@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('actors', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string("name");
-            $table->date("date_of_birth");
-            $table->string('imageActor');
+            $table->date("date_of_birth")->nullable();
+            $table->string('imageActor')->nullable();
             $table->timestamps();
         });
     }

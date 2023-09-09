@@ -1,7 +1,5 @@
-@extends('layouts/app')
 
-@section('content')
-    <main>
+
 
         <h1 class="text-light text-center mt-5">Edit Movie</h1>
         @if ($errors->any())
@@ -50,7 +48,7 @@
 
         </section>
         
-    </main>
+
 
 @endsection
 
