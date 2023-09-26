@@ -18,10 +18,10 @@ return new class extends Migration
             $table->float('duration')->nullable();
             $table->text('synopsis')->nullable();
             $table->string('imageMovie')->nullable();
-            $table->foreignId('mainActorId')->nullable();
+            /* $table->foreignId('mainActorId')->nullable(); */
             $table->timestamps();
 
-            $table->foreign('mainActorId')->references('id')->on('actors');
+            /* $table->foreign('mainActorId')->references('id')->on('actors'); */
 
         });
     }

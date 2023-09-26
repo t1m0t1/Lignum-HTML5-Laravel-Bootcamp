@@ -14,10 +14,10 @@ class Movie extends Model
         'year' => 'datetime'
     ];
 
-    public function mainActor()
+/*     public function mainActor()
     {
         return $this->belongsTo(Actor::class,'mainActorId');
-    }
+    } */
     public function favorite()
     {
         return $this->hasMany(Favorites::class);

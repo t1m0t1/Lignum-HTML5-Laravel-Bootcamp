@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Favorites;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home',['movies'=>Movie::all()]);
+        $favorites =  Favorites::query()
+        ->select('movieId')
+        -> where('userId', '=' , 1)
+        ->get()
+        ->pluck('movieId')
+        ;
+
+        
+        
+        return view('home',['movies'=>Movie::all(), 'favorites' => $favorites]);
     }
 }

@@ -70,6 +70,17 @@ class MovieController extends Controller
         return view('movie.editMovie', ['movie' => Movie::find($id), 'actors' => Actor::all()]);
     }
 
+    public function searchMovie($id){
+        $movie = Movie::find($id);
+
+        if ($movie)
+        {
+            return $movie;
+        }else{
+            return null;
+        }
+    }
+
     /**
      * Update the specified resource in storage.
      */

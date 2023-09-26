@@ -51,6 +51,7 @@ class MovieModalEdit extends Component
     /* Funciones manipulacion de peliculas */
     public function editMovie()
     {   
+        dd($this->movie);
         $this->validate();
     }
 

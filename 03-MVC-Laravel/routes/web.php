@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ActorController;
+use App\Http\Controllers\CastController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MovieController;
@@ -34,5 +35,7 @@ Route::resource('actor', ActorController::class);
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/movie/{id}' , [MovieController::class, 'searchMovie']);
 Route::post('/addToFavorites', [FavoritesController::class, 'addToFavorites']);
 Route::get('/favorites', [FavoritesController::class, 'index']);
+Route::post('/addCast/{movieID}/{actorID}', [CastController::class, 'addCast']);

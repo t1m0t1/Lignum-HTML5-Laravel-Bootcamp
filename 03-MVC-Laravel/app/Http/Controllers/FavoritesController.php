@@ -12,6 +12,7 @@ class FavoritesController extends Controller
 
 
     public function index(){
+        
         return view('favorites.indexFavorites',['favorites'=> Favorites::all()]); // pasar id de usuario
     }
 
@@ -19,6 +20,8 @@ class FavoritesController extends Controller
     {   
         $movie = Movie::findOrFail($request->id);
         $user = Auth::user();
+        
+
         
         $favorite = Favorites::where('userId', $user->id)->where('movieId', $movie->id)->first();
     

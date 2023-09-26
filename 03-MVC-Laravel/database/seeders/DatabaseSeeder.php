@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         Actor::factory(60)->create();
         Movie::factory(20)
-                ->for(Actor::factory(),'mainActor')
+               /*  ->for(Actor::factory(),'mainActor') */
                 ->create();
 
         // \App\Models\User::factory()->create([

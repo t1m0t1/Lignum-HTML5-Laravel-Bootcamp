@@ -5,6 +5,7 @@
         <div class="row">
             @foreach ($favorites as $favorite)
                 <div class="card m-3" style="width: 18rem; opacity: 80%">
+                    
                     <img src={{ asset('images/movies/' . $favorite->movie->imageMovie) }} class="card-img-top mt-1"
                         alt="image movie {{ $favorite->movie->imageMovie}}">
                     <div class="card-body">
