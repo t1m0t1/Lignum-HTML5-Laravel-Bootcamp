@@ -29,7 +29,8 @@ Route::get('/', function () {
     return view('home', ['movies'=> Movie::all()]);
 }); */
 
-Route::get('/movie', ListMovies::class);
+Route::get('/movieLaravel', [MovieController::class, 'index']);
+Route::get('/movieLivewire', ListMovies::class);
 Route::resource('actor', ActorController::class);
 
 Auth::routes();

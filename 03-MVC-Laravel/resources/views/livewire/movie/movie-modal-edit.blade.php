@@ -1,31 +1,7 @@
 <div>
 
   <script>
-    function addCast(movieId)
-    {
-      let actorID= $("#actorID-" + movieId).select2('val');
-
-      $.ajaxSetup({
-      headers: {
-      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-      });
-
-      $.ajax(
-      {
-        method: "POST",
-        url: "/addCast/" + movieId + "/" + actorID,
-        success: (res)=>
-        {
-          console.log(res);
-        }
-      })
-
-
-
-
-    }
-
+    
     $(document).ready(function() {
     $('#actorID-{{$movie->id}}').select2({
       dropdownParent: $('#ModalEdit-{{$movie->id}}')
@@ -88,9 +64,9 @@
 
             <label for="actorID">Cast</label>
 
-            <textarea id="" cols="10" rows="10">
-              <span></span>
-            </textarea>
+            <div>
+              <span>actor</span>
+            </div>
 
             <select class="form-control" id="actorID-{{$movie->id}}" onchange="addCast({{$movie->id}})"
               wire:model="movie.mainActorId">

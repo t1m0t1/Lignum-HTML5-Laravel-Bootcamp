@@ -13,7 +13,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        return view('movie.indexMovie', ['movies' => Movie::all()]);
+        return view('movie.indexMovie', ['movies' => Movie::all(), 'actors'=> Actor::all()]);
     }
 
     /**
