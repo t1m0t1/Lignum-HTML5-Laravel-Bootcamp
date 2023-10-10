@@ -28,15 +28,22 @@ Route::get('/', function () {
 /* Route::get('/', function () {
     return view('home', ['movies'=> Movie::all()]);
 }); */
-
+/* Routes Views */
 Route::get('/movieLaravel', [MovieController::class, 'index']);
 Route::get('/movieLivewire', ListMovies::class);
 Route::resource('actor', ActorController::class);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+/* Auth Route */
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+/* Routes Movie */
 Route::get('/movie/{id}' , [MovieController::class, 'searchMovie']);
+
+/* Routes Favorites */
 Route::post('/addToFavorites', [FavoritesController::class, 'addToFavorites']);
 Route::get('/favorites', [FavoritesController::class, 'index']);
+
+/* Routes Cast */
 Route::post('/addCast/{movieID}/{actorID}', [CastController::class, 'addCast']);
+Route::get('/searchCast/{movieID}', [CastController::class, 'searchCast']);

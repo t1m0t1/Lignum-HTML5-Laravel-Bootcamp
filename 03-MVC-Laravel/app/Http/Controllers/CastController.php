@@ -6,6 +6,7 @@ use App\Models\Actor;
 use App\Models\Cast;
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CastController extends Controller
 {
@@ -27,56 +28,41 @@ class CastController extends Controller
             $cast->save();
             return "success";
         }else{
-            return "error";
+            return "error al ingresar un actor al elenco";
         }
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+   
+    public function searchCast($id)
     {
-        //
-    }
+        $actorsIds= Cast::query()
+        ->select()
+        -> where('movieId', '=' , $id)
+        ->get()
+        ->pluck('actorId')
+        ->toArray()
+        ;
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        /* dd($actorsIds); */
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Cast $cast)
-    {
-        //
-    }
+        $cast=[];
+        
+        for ($i = 0; $i <= count($actorsIds)-1 ; $i++) {
+            $cast[$i] = DB::table('actors')
+            ->where('id','=', $actorsIds[$i])
+            ->get()
+            ;
+            
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Cast $cast)
-    {
-        //
-    }
+ 
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Cast $cast)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Cast $cast)
-    {
-        //
+        if($cast)
+        {
+            return $cast;
+        }else{
+            return null;
+        }
     }
 }

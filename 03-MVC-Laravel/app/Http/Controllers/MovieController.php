@@ -73,6 +73,7 @@ class MovieController extends Controller
     public function searchMovie($id){
         $movie = Movie::find($id);
 
+
         if ($movie)
         {
             return $movie;

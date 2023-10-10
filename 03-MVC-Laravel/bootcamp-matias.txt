@@ -1,0 +1,55 @@
+Como ADMIN quiero:
+
+Una vez creada la pelicula, ver en un modal sus datos y editarlos, ademas quiero agregar 1 a n actores con solo seleccionarlo y removerlos con un boton (rojo, que tenga una X). 
+
+Hay muchos actores asi que quiero que sea facil de buscar.
+
+Detalles tecnicos:
+Realizar con AJAX
+El buscador debe ser un select2
+
+Criterios de aceptacion:
+Cuando selecciono un actor se suma a la pelicula.
+Cuando presiono en la X se elimina ese actor de la pelicula.
+Un actor agregado desaparece de la lista de busqueda.
+No puedo agregar dos veces el mismo actor (por ejemplo intentando desde dos pestañas diferentes al mismo tiempo).
+Si no puse alguno de los datos requeridos para la pelicula no me permite guardar la edicion pero los actores si se guardaron.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Como ADMIN quiero:
+
+Una vez creado un actor, ver en un modal sus datos y editarlos, ademas me resulta mas facil entrar en un actor y agregarle sus peliculas porque soy muy fan.
+Quiero agregar 1 a n peliculas a un actor con solo seleccionarla y removerlas con un boton (rojo, que tenga una X). 
+
+Hay muchas peliculas asi que quiero que sea facil de buscar.
+
+Detalles tecnicos:
+Realizar con Livewire
+El buscador debe ser un select2
+
+Criterios de aceptacion:
+Cuando selecciono una pelicula se suma a la pelicula.
+Cuando presiono en la X se elimina la pelicula del actor
+Una pelicula agregada desaparece de la lista de busqueda.
+No puedo agregar dos veces la misma pelicula (por ejemplo intentando desde dos pestañas diferentes al mismo tiempo).
+Si no puse alguno de los datos requeridos para el actor no me permite guardar la edicion pero las peliculas si se guardaron.
+
+------------------------------------------------------------------------------------------------------------------------------
+La pantalla de peliculas tarda demasiado en cargar y ya no encuentro ninguna pelicula ni actor!!!
+
+El cliente necesita paginado en sus listados de actores y peliculas y al menos un filtro por nombre.
+
+Detalles tecnicos:
+Realizar uno con AJAX Y otro con livewire
+Le dariamos mejor experiencia de usuario si el buscador fuera automatico con un debouncer (https://www.freecodecamp.org/espanol/news/curso-debounce-javascript-como-hacer-que-tu-js-espere/) no?
+
+Criterios de aceptacion:
+Las listas estan correctamente paginadas y puedo navegarlo en el footer o header (o ambos)
+Si busco y me muevo en la paginacion me busca en la lista paginada y no desaparecen los filtros al moverme entre paginas
+La busqueda recien comienza luego de tres letras escritas
+
+
+
+agregar actor a cast.
+mostrar actores quee existen con el id de la pelicula en la tabla cast.
+poder quitar actores del cast.
