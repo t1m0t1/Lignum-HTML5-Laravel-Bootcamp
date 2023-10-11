@@ -41,10 +41,18 @@ function editMovie(id)
             let actorList = $('#listCast');
             for (let i = 0; i < actors.length; i++) {
               let actor = actors[i];
-              console.log(actor);
+              
               let listItem = $('<li>').text(actor[0].name);
-              let checkbox = $('<input>').attr('type', 'checkbox').val(actor[0].id);
-              listItem.prepend(checkbox);
+              let buttonDelete = $('<input type="button" value="x" />');
+              buttonDelete.css("color","red");
+              buttonDelete.css("border","none");
+              buttonDelete.css("background-color","white");
+              buttonDelete.on("click",function()
+              {
+                deleteActorToCast(actor[0].id);
+              })
+              
+              listItem.prepend(buttonDelete);
               actorList.append(listItem); }
 
           }
@@ -70,9 +78,14 @@ function addCast()
         url: "/addCast/" + movieId + "/" + actorID,
         success: (res)=>
         {
-          console.log(res);
+          
         }
       })
 
+    }
+
+function deleteActorToCast(actorID)
+    {
+      console.log(actorID);
     }
 
