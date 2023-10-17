@@ -12,7 +12,7 @@
             <table class="table" style="opacity: 80%">
                 <thead>
                     <tr>
-                        <th scope="col"></th>
+                        {{-- <th scope="col"></th> --}}
                         <th scope="col">Name</th>
                         <th scope="col">Date of birth</th>
                         <th></th>
@@ -22,24 +22,22 @@
                 <tbody>
                     @foreach ($actors as $actor)
                         <tr class="align-middle">
-                            <td><img class="img-responsive" src='{{ asset('images/' . $actor->imageActor) }} 'alt=""
-                                    style='height: 10vh'></td>
+                            {{-- <td><img class="img-responsive" src='{{ asset('images/' . $actor->imageActor) }} 'alt=""
+                                    style='height: 10vh'></td> --}}
                             <td> {{ $actor->name }} </td>
                             <td> {{ $actor->date_of_birth }} </td>
                             <td>
-                                <a href={{ url('actor/'. $actor->id .'/edit') }} class="btn btn-success mb-3">Edit</a>
+                                <a  onclick="Livewire.emit('editActor',{{$actor->id}})" data-bs-toggle="modal" data-bs-target="#modalEditActor" class="btn btn-success mb-3">Edit</a>
                             </td>
                             <td>
-                                <form action="{{ url('actor/' . $actor->id) }}" method="post">
-                                    @method('delete')
-                                    @csrf
-                                    <button class="btn btn-danger" type="submit">Delete</button>
-                                </form>
+                               
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+
+            <livewire:modal-edit/>
         </section>
     </main>
 @endsection

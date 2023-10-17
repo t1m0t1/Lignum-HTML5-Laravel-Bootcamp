@@ -16,19 +16,21 @@ class CastController extends Controller
     public function addCast($movieID,$actorID)
     {
 
-        
-        $movie= Movie::find($movieID);
-        $actor=Actor::find($actorID);
+        $actorExist=DB:: table('casts')
+        ->where('actorID', '=' , $actorID)
+        ->where('movieID', '=' , $movieID)
+        ->count();
 
+        /* dd($actorExist); */
 
-        if($movie && $actor){
+        if($actorExist === 0){
             $cast = new Cast();
             $cast->movieID = $movieID;
             $cast->actorID = $actorID;
             $cast->save();
             return "success";
         }else{
-            return "error al ingresar un actor al elenco";
+            return "El actor ya existe";
         }
         
     }
@@ -44,10 +46,26 @@ class CastController extends Controller
         ->toArray()
         ;
 
-        /* dd($actorsIds); */
+        /* traer todos los actores excepto los que ya se encuentran en el cast */
 
+        $data= Actor::select('name','id')->whereNotIn('id',$actorsIds)->get();
+
+        $options = [];
+
+        foreach ($data as $actor)
+        {
+            $options[] = [
+                'id' => $actor->id,
+                'name' => $actor->name,
+            ];    
+        }
+
+
+         /* dd($actors);  */
+        
         $cast=[];
         
+        /* traer los nombres de los actores*/
         for ($i = 0; $i <= count($actorsIds)-1 ; $i++) {
             $cast[$i] = DB::table('actors')
             ->where('id','=', $actorsIds[$i])
@@ -60,9 +78,22 @@ class CastController extends Controller
 
         if($cast)
         {
-            return $cast;
+        return [$cast,$options];
         }else{
             return null;
         }
+    }
+
+    public function deleteActorToCast($movieID,$actorID)
+    {
+        DB:: table('casts')
+        ->where('actorID', '=' , $actorID)
+        ->where('movieID', '=' , $movieID)
+        ->delete();
+        
+        
+        /* dd($castID[0]); */
+
+        return 'success';
     }
 }

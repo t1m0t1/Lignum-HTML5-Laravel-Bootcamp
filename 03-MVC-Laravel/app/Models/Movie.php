@@ -21,5 +21,12 @@ class Movie extends Model
     public function favorite()
     {
         return $this->hasMany(Favorites::class);
+
+    }
+
+    public function casts()
+    {
+        return $this->hasMany(Cast::class, 'movieId', 'id');
+        
     }
 }

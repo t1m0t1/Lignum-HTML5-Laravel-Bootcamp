@@ -86,7 +86,7 @@
     </tbody>
   </table>
 
-  <div wire:ignore.self class="modal fade" id="ModalEdit" aria-hidden="true">
+  <div class="modal fade" id="ModalEdit" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content ps-4 pe-4">
 
@@ -99,6 +99,8 @@
         <img id="imageMovie" src="" alt="" style=" height: 100%; right: 31em; bottom: auto; position: absolute; ">
 
         <div class="modal-body">
+
+          <p id="prueba"></p>
 
 
           <form enctype="multipart/form-data">
@@ -133,10 +135,11 @@
             </ul>
 
             <select class="form-control" id="actorID" onchange="addCast()">
-
-              @foreach ($actors as $actor)
+              
+{{--               @foreach ($actors as $actor)
               <option value="{{$actor->id}}">{{$actor->name}}</option>
-              @endforeach
+              @endforeach --}}
+              
             </select>
 
             <div class="d-grid gap-2 mb-2">

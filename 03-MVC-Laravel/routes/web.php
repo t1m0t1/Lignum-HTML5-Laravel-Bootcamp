@@ -47,3 +47,4 @@ Route::get('/favorites', [FavoritesController::class, 'index']);
 /* Routes Cast */
 Route::post('/addCast/{movieID}/{actorID}', [CastController::class, 'addCast']);
 Route::get('/searchCast/{movieID}', [CastController::class, 'searchCast']);
+Route::delete('/deleteActorToCast/{movieID}/{actorID}', [CastController::class, 'deleteActorToCast']);
